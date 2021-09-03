@@ -23,11 +23,16 @@
           <span>{{item.authName}}</span>
         </template>
        <!-- 记得加/ -->
+       
             <el-menu-item :index="'/' + subItem.path" 
             v-for="subItem in item.children" 
             :key="subItem.id"
             @click="saveNavState('/'+subItem.path)">
+            <!-- 图标 -->
+                <i class="el-icon-menu"></i>
+                <!-- 文本 -->
             {{subItem.authName}}
+
             </el-menu-item>
         </el-submenu>
     </el-menu>
@@ -53,7 +58,7 @@ export default {
             const{data:res} = await this.$http.get('menus')
             if(res.meta.status!==200) return this.$message.error(res.meta.msg)
             this.menulist=res.data
-            console.log(this.menulist)
+            // console.log(this.menulist)
         },
         saveNavState(activePath){
             window.sessionStorage.setItem('activeItem',activePath)
@@ -94,6 +99,7 @@ export default {
     > span{
         display: block;
         color:white;
+        
         // font-size:26px;
         // text-align: center;
     }
@@ -108,8 +114,13 @@ export default {
   .el-submenu {
       background-color: inherit;
   }
+  .el-icon-menu{
+      margin-left: 10px;
+  }
 }
-
+// .iconfont{
+//     margin-right: 10px;
+// }
 .el-main {
   background-color: #eaedf1;
 }

@@ -11,9 +11,14 @@ import {
     Header,
     Row,
     Col,
-    Menu,
-    Submenu,
-    MenuItem
+    Menu,Submenu,MenuItem,
+    Breadcrumb,BreadcrumbItem,
+    Card,
+    Table,TableColumn,
+    Pagination,
+    Tooltip,
+    Switch,
+    Dialog
 } from 'element-ui'
 
 Vue.use(Button)
@@ -29,5 +34,14 @@ Vue.use(Row)
 Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Card)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Tooltip)
 // Vue.use(Message)
+Vue.use(Switch)
+Vue.use(Dialog)
 Vue.prototype.$message = Message
