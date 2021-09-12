@@ -16,6 +16,7 @@
       text-color="#fff"
       active-text-color="#ffd04b"
       unique-opened
+      router
       >
       <el-submenu  :index="item.id+''" v-for="item in menulist" :key="item.id">
         <template slot="title">

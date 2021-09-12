@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import TreeTable from 'vue-table-with-tree-grid'
 import './plugins/element.js'
 // 导入字体图标
 import './assets/fonts/iconfont.css'
@@ -15,7 +16,20 @@ axios.interceptors.request.use(config => {
   // 在最后必须 return config
   return config
 })
+Vue.component('tree-table', TreeTable)
+Vue.filter('dateFormat', function(originVal) {
+  const dt = new Date(originVal)
 
+  const y = dt.getFullYear()
+  const m = (dt.getMonth() + 1 + '').padStart(2, '0')
+  const d = (dt.getDate() + '').padStart(2, '0')
+
+  const hh = (dt.getHours() + '').padStart(2, '0')
+  const mm = (dt.getMinutes() + '').padStart(2, '0')
+  const ss = (dt.getSeconds() + '').padStart(2, '0')
+
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
+})
 
 new Vue({
   router,
